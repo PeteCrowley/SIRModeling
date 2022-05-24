@@ -16,7 +16,6 @@ class QuarantinedPopulation(Population):
 
     def dSdt(self) -> float:
         """
-        dS/dt = -alpha * Infected * Susceptible
         :return: dS/dt
         """
         return (-self.alpha * self.infected * self.calc_total_attendants() - self.alpha *
@@ -24,21 +23,18 @@ class QuarantinedPopulation(Population):
 
     def dIdt(self) -> float:
         """
-        dI/dt = alpha * Infected * Susceptible - beta * Infected
         :return: dI/dt
         """
         return -self.dSdt() - self.beta * self.infected * self.timeStep
 
     def dRdt(self) -> float:
         """
-        dR/dt = (1-deathrate) beta * Infected
         :return: dR/dt
         """
         return (1-self.death_rate)*self.beta * self.infected * self.timeStep
 
     def dTdt(self) -> float:
         """
-        dT/dt = (deathrate) beta * Infected
         :return: dT/dt
         """
         return self.death_rate * self.beta * self.infected * self.timeStep

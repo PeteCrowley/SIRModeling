@@ -20,7 +20,7 @@ class IncubatedPopulation(QuarantinedPopulation):
         """
         :return: dS/dt
         """
-        return (-self.alpha * 10 * self.symptomatic * self.calc_total_attendants() - self.alpha *
+        return (-self.alpha * self.symptomatic * self.calc_total_attendants() - self.alpha *
                 ((1 - self.quarantine_percent) * self.symptomatic + self.asymptomatic) * self.susceptible) * self.timeStep
 
     def dIAdt(self) -> float:
