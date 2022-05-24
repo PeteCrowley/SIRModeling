@@ -93,7 +93,6 @@ def main():
         print()
     # Find and print when the disease was spreading the fastest
     fast_time = find_quickest_spread(time_list, sus)
-    # print(f"{round(rec[-1] + deaths[-1] + inf[-1])}", end=", ")
     print()
     print(f"Total Infected: {round(rec[-1]+deaths[-1]+inf[-1])}")
     print(f"Maximum ill at once: {str(round(max(inf)))} (at time t={str(time_list[inf.index(max(inf))])})")
